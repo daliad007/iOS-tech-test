@@ -34,14 +34,16 @@ final class GetProductsFlowCoordinator {
         let actions = ProductsListViewModelActions(showProductDetails: showProductDetails)
         let shopVC = dependencies.makeProductsListViewController(actions: actions)
 
+        let navVC = UINavigationController(rootViewController: shopVC)
+
         let occasionsVC = dependencies.makeOccasionsViewController()
 
-        tabBarController?.viewControllers = [shopVC, occasionsVC]
+        tabBarController?.viewControllers = [navVC, occasionsVC]
         productsListVC = shopVC
     }
 
     private func showProductDetails(product: Product) {
         let vc = dependencies.makeProductDetailsViewController(product: product)
-        navigationController?.pushViewController(vc, animated: true)
+        productsListVC?.navigationController?.pushViewController(vc, animated: true)
     }
 }
