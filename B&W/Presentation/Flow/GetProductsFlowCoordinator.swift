@@ -11,6 +11,7 @@ import UIKit
 protocol GetProductsFlowCoordinatorDependencies {
     func makeProductsListViewController(actions: ProductsListViewModelActions) -> ProductsListViewController
     func makeProductDetailsViewController(product: Product) -> ProductDetailsViewController
+    func makeOccasionsViewController() -> OccasionsViewController
 }
 
 final class GetProductsFlowCoordinator {
@@ -33,9 +34,9 @@ final class GetProductsFlowCoordinator {
         let actions = ProductsListViewModelActions(showProductDetails: showProductDetails)
         let shopVC = dependencies.makeProductsListViewController(actions: actions)
 
-        let occasionsVC = dependencies.makeProductsListViewController(actions: actions)
+        let occasionsVC = dependencies.makeOccasionsViewController()
 
-        tabBarController?.viewControllers = [shopVC]
+        tabBarController?.viewControllers = [shopVC, occasionsVC]
         productsListVC = shopVC
     }
 
