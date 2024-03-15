@@ -24,20 +24,17 @@ protocol ProductDetailsViewModel: ProductDetailsViewModelInput, ProductDetailsVi
 final class DefaultProductDetailsViewModel: ProductDetailsViewModel {
 
     private let imagePath: String?
-    private let imagesRepository: ImagesRepository
-    private var imageLoadTask: Cancellable? { willSet { imageLoadTask?.cancel() } }
 
     let name: String
     let image: Observable<Data?> = Observable(nil)
     let description: String
     let price: String
 
-    init(product: Product, imagesRepository: ImagesRepository) {
+    init(product: Product) {
         self.name = product.name ?? ""
         self.description = product.description ?? ""
         self.imagePath = product.imagePath
         self.price = product.price ?? ""
-        self.imagesRepository = imagesRepository
     }
 }
 
@@ -45,14 +42,12 @@ extension DefaultProductDetailsViewModel {
     func updateImage() {
         guard let imagePath = imagePath else { return }
 
-        imageLoadTask = imagesRepository.fetchImage(with: imagePath) { result in
-            guard self.imagePath == imagePath else { return }
-            switch result {
-            case .success(let data):
-                self.image.value = data
-            case .failure: break
-            }
-            self.imageLoadTask = nil
+        let url = URL(string: imagePath)!
+
+        // Fetch Image Data
+        if let data = try? Data(contentsOf: url) {
+            // Create Image and Update Image View
+            self.image.value = data
         }
     }
 }

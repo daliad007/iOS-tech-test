@@ -33,14 +33,10 @@ final class DependencyContainer {
         return DefaultProductsRepository(dataTransferService: dependencies.apiDataTransferService)
     }
 
-    func makeImageRepository() -> ImagesRepository {
-        return DefaultImagesRepository(dataTransferService: dependencies.apiDataTransferService)
-    }
-
     // MARK: - Controllers
 
     func makeProductsListViewController(actions: ProductsListViewModelActions) -> ProductsListViewController {
-        return ProductsListViewController.create(with: makeProductsListViewModel(actions: actions), imagesRepository: makeImageRepository())
+        return ProductsListViewController.create(with: makeProductsListViewModel(actions: actions))
     }
 
     func makeProductDetailsViewController(product: Product) -> ProductDetailsViewController {
@@ -56,7 +52,7 @@ final class DependencyContainer {
     }
 
     func makeProductDetailsViewModel(product: Product) -> ProductDetailsViewModel {
-        return DefaultProductDetailsViewModel(product: product, imagesRepository: makeImageRepository())
+        return DefaultProductDetailsViewModel(product: product)
     }
 
     // MARK: - Flow Coordinators

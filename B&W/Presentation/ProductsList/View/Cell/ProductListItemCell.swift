@@ -20,12 +20,8 @@ final class ProductListItemCell: UITableViewCell {
 
     private var viewModel: ProductsListItemViewModel!
 
-    private var imagesRepository: ImagesRepository?
-    private var imageLoadTask: Cancellable? { willSet { imageLoadTask?.cancel() } }
-
-    func fill(with viewModel: ProductsListItemViewModel, imagesRepository: ImagesRepository?) {
+    func fill(with viewModel: ProductsListItemViewModel) {
         self.viewModel = viewModel
-        self.imagesRepository = imagesRepository
 
         nameLabel.text = viewModel.name
         priceLabel.text = viewModel.price.description
@@ -36,12 +32,12 @@ final class ProductListItemCell: UITableViewCell {
     private func updateImage() {
         productImageView.image = nil
 
-        imageLoadTask = imagesRepository?.fetchImage(with: viewModel.imagePath) { [weak self] result in
-            guard let self = self else { return }
-            if case let .success(data) = result {
-                self.productImageView.image = UIImage(data: data)
-            }
-            self.imageLoadTask = nil
+        let url = URL(string: viewModel.imagePath)!
+
+        // Fetch Image Data
+        if let data = try? Data(contentsOf: url) {
+            // Create Image and Update Image View
+            self.productImageView.image = UIImage(data: data)
         }
     }
 }

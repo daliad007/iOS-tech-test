@@ -12,8 +12,6 @@ class ProductsListViewController: UITableViewController, StoryboardInstantiable 
 
     var viewModel: ProductsListViewModel!
 
-    var imagesRepository: ImagesRepository?
-
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -35,10 +33,9 @@ class ProductsListViewController: UITableViewController, StoryboardInstantiable 
         self.present(alert, animated: true, completion: nil)
     }
 
-    static func create(with viewModel: ProductsListViewModel, imagesRepository: ImagesRepository?) -> ProductsListViewController {
+    static func create(with viewModel: ProductsListViewModel) -> ProductsListViewController {
         let view = ProductsListViewController.instantiateViewController()
         view.viewModel = viewModel
-        view.imagesRepository = imagesRepository
         return view
     }
 
@@ -59,7 +56,7 @@ extension ProductsListViewController {
             return UITableViewCell()
         }
 
-        cell.fill(with: viewModel.items.value[indexPath.row], imagesRepository: imagesRepository)
+        cell.fill(with: viewModel.items.value[indexPath.row])
 
         return cell
     }

@@ -38,8 +38,6 @@
 		2B91C7C62514F6DD00F0957C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91C7C52514F6DD00F0957C /* NetworkService.swift */; };
 		2B91C8522515285100F0957C /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91C8512515285100F0957C /* Observable.swift */; };
 		2BFB4A62251655DB00BD4735 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB4A61251655DB00BD4735 /* ProductDetailsViewModel.swift */; };
-		2BFB4A6725165BB300BD4735 /* DefaultImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB4A6625165BB300BD4735 /* DefaultImagesRepository.swift */; };
-		2BFB4A6C25165CAE00BD4735 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB4A6B25165CAE00BD4735 /* ImagesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +95,6 @@
 		2B91C7C52514F6DD00F0957C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		2B91C8512515285100F0957C /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		2BFB4A61251655DB00BD4735 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
-		2BFB4A6625165BB300BD4735 /* DefaultImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImagesRepository.swift; sourceTree = "<group>"; };
-		2BFB4A6B25165CAE00BD4735 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +302,6 @@
 			children = (
 				2B91C7702513B38400F0957C /* Utils */,
 				2B91C73D2513A88000F0957C /* DefaultProductsRepository.swift */,
-				2BFB4A6625165BB300BD4735 /* DefaultImagesRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -349,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				2B91C75A2513ACDF00F0957C /* ProductsRepository.swift */,
-				2BFB4A6B25165CAE00BD4735 /* ImagesRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -517,7 +511,6 @@
 				2B891247251356A5004BC46D /* ProductDetailsViewController.swift in Sources */,
 				2B91C72525139E0500F0957C /* Endpoint.swift in Sources */,
 				2B91C7872514AF7900F0957C /* StoryboardInstantiable.swift in Sources */,
-				2BFB4A6725165BB300BD4735 /* DefaultImagesRepository.swift in Sources */,
 				2B91C7C62514F6DD00F0957C /* NetworkService.swift in Sources */,
 				2B91C7642513B11F00F0957C /* ProductQuery.swift in Sources */,
 				2B91C76C2513B26600F0957C /* Product.swift in Sources */,
@@ -534,7 +527,6 @@
 				2B91C8522515285100F0957C /* Observable.swift in Sources */,
 				2B89128B251362D0004BC46D /* ProductListItemCell.swift in Sources */,
 				2B89129225136CC3004BC46D /* ProductsListItemViewModel.swift in Sources */,
-				2BFB4A6C25165CAE00BD4735 /* ImagesRepository.swift in Sources */,
 				2B91C7722513B39600F0957C /* RepositoryTask.swift in Sources */,
 				2B91C7822514AC7000F0957C /* DependencyInjector.swift in Sources */,
 				2B91C75B2513ACDF00F0957C /* ProductsRepository.swift in Sources */,
