@@ -43,10 +43,6 @@ final class DependencyContainer {
         return ProductsListViewController.create(with: makeProductsListViewModel(actions: actions), imagesRepository: makeImageRepository())
     }
 
-    func makeOccasionsViewController() -> OccasionsViewController {
-        return OccasionsViewController.create()
-    }
-
     func makeProductDetailsViewController(product: Product) -> ProductDetailsViewController {
 
         return ProductDetailsViewController.create(with: makeProductDetailsViewModel(product: product))
