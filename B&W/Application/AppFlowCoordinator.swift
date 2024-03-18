@@ -24,7 +24,7 @@ final class AppFlowCoordinator {
 final class AppDependenciesContainer {
 
     lazy var apiDataTransferService: DataTransferService = {
-        let config = ApiRequestConfig(baseURL: URL(string: "https://my-json-server.typicode.com/daliadanila/ProductsAPI/")!)
+        let config = ApiRequestConfig(baseURL: URL(string: "https://my-json-server.typicode.com/daliad007/iOS-tech-test/")!)
 
         let apiDataNetwork = DefaultNetworkService(config: config)
         return DefaultDataTransferService(with: apiDataNetwork)
